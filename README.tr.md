@@ -11,7 +11,7 @@
 
 ## Kurulum
 
-1. Projeye `AudioManager.js` dosyasını ekleyin veya aşağıdaki kodu kendi dosyanıza ekleyin.
+1. Projeye `AudioManager.tr.js` dosyasını ekleyin veya aşağıdaki kodu kendi dosyanıza ekleyin.
 2. Sınıfı kullanmak için `AudioManager`'ı çağırarak yeni bir ses yöneticisi oluşturun.
 
 ## Kullanım
