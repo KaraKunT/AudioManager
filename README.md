@@ -40,10 +40,15 @@ document.addEventListener("DOMContentLoaded", async function () {
   audioManager.sesEtiket("clickItem", "itemSelect", 60); // Use "itemSelect" at 60% volume
 
   // Test sounds
-  audioManager.menuClick();     // Plays at 100% volume
-  audioManager.itemSelect();    // Plays at 80% volume
-  audioManager.openTab();       // Plays at 70% volume
-  audioManager.clickItem();     // Plays at 60% volume
+  audioManager.menuClick();  // Plays at 100% volume
+  audioManager.itemSelect(); // Plays at 80% volume
+  audioManager.openTab();    // Plays at 70% volume
+  audioManager.clickItem();  // Plays at 60% volume
+
+  audioManager.play("menuClick");  // Plays at 100% volume
+  audioManager.play("itemSelect"); // Plays at 80% volume
+  audioManager.play("openTab");    // Plays at 70% volume
+  audioManager.play("clickItem");  // Plays at 60% volume
 
   // Set a master volume
   audioManager.setMasterVolume(50); // Sets the master volume to 50%
@@ -61,12 +66,14 @@ document.addEventListener("DOMContentLoaded", async function () {
 - **Tagging**:
   ```javascript
   audioManager.sesEtiket("secondaryClick", "clickSound", 60); // Tag with 60% volume
-  audioManager.secondaryClick(); // Plays at 60% volume
+  audioManager.secondaryClick();       // Plays at 60% volume
+  audioManager.play("secondaryClick"); // Plays at 60% volume
   ```
 
 - **Playing with a Temporary Volume**:
   ```javascript
-  audioManager.clickSound(30); // Plays once at 30% volume
+  audioManager.clickSound(30);         // Plays once at 30% volume
+  audioManager.play("clickSound", 30); // Plays once at 30% volume
   ```
 
 - **Setting Master Volume**:
