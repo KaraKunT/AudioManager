@@ -40,10 +40,15 @@ document.addEventListener("DOMContentLoaded", async function () {
   audioManager.sesEtiket("clickItem", "itemSelect", 60); // %60 sesle "itemSelect" olarak
 
   // Sesleri test edin
-  audioManager.menuClick();     // %100 sesle çalınır
-  audioManager.itemSelect();    // %80 sesle çalınır
-  audioManager.openTab();       // %70 sesle çalınır
-  audioManager.clickItem();     // %60 sesle çalınır
+  audioManager.menuClick();  // %100 sesle çalınır
+  audioManager.itemSelect(); // %80 sesle çalınır
+  audioManager.openTab();    // %70 sesle çalınır
+  audioManager.clickItem();  // %60 sesle çalınır
+
+  audioManager.play("menuClick");  // %100 sesle çalınır
+  audioManager.play("itemSelect"); // %80 sesle çalınır
+  audioManager.play("openTab");    // %70 sesle çalınır
+  audioManager.play("clickItem");  // %60 sesle çalınır
 
   // Genel ses seviyesini ayarlayın
   audioManager.setMasterVolume(50); // Genel ses %50 olur
@@ -55,18 +60,20 @@ document.addEventListener("DOMContentLoaded", async function () {
 - **Ses Yükleme ve Oynatma**:
   ```javascript
   audioManager.sesYukle("clickSound", "button_click.wav", 90); // %90 ses seviyesinde yükle
-  audioManager.clickSound(); // %90 ses seviyesinde oynatır
+  audioManager.clickSound(); // %90 ses seviyesinde oynatır 
   ```
 
 - **Etiketleme**:
   ```javascript
   audioManager.sesEtiket("secondaryClick", "clickSound", 60); // %60 sesle farklı bir etiket
-  audioManager.secondaryClick(); // %60 ses seviyesinde oynar
+  audioManager.secondaryClick();       // %60 ses seviyesinde oynar
+  audioManager.play("secondaryClick"); // %60 ses seviyesinde oynar
   ```
 
 - **Geçici Ses Seviyesi ile Oynatma**:
   ```javascript
-  audioManager.clickSound(30); // Bir defalığına %30 sesle çalınır
+  audioManager.clickSound(30);         // Bir defalığına %30 sesle çalınır
+  audioManager.play("clickSound", 30); // Bir defalığına %30 sesle çalınır
   ```
 
 - **Genel Ses Seviyesini Ayarlama**:
