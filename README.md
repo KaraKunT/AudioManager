@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", async function () {
   audioManager = new AudioManager(globalSoundPath);
 
   // Load different sounds
-  await audioManager.sesYukle("menuClick", "menu_click.wav", 100); // Load at 100% volume
-  await audioManager.sesYukle("itemSelect", "item_select.wav", 80); // Load at 80% volume
+  await audioManager.loadSound("menuClick", "menu_click.wav", 100); // Load at 100% volume
+  await audioManager.loadSound("itemSelect", "item_select.wav", 80); // Load at 80% volume
 
   // Tag an existing sound with different names
-  audioManager.sesEtiket("openTab", "menuClick", 70);    // Use "menuClick" at 70% volume
-  audioManager.sesEtiket("clickItem", "itemSelect", 60); // Use "itemSelect" at 60% volume
+  audioManager.tagSound("openTab", "menuClick", 70);    // Use "menuClick" at 70% volume
+  audioManager.tagSound("clickItem", "itemSelect", 60); // Use "itemSelect" at 60% volume
 
   // Test sounds
   audioManager.menuClick();  // Plays at 100% volume
@@ -59,13 +59,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 - **Loading and Playing Sounds**:
   ```javascript
-  audioManager.sesYukle("clickSound", "button_click.wav", 90); // Load at 90% volume
+  audioManager.loadSound("clickSound", "button_click.wav", 90); // Load at 90% volume
   audioManager.clickSound(); // Plays at 90% volume
   ```
 
 - **Tagging**:
   ```javascript
-  audioManager.sesEtiket("secondaryClick", "clickSound", 60); // Tag with 60% volume
+  audioManager.tagSound("secondaryClick", "clickSound", 60); // Tag with 60% volume
   audioManager.secondaryClick();       // Plays at 60% volume
   audioManager.play("secondaryClick"); // Plays at 60% volume
   ```
