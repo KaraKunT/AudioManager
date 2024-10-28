@@ -32,7 +32,7 @@ class AudioManager {
   }
 
   // Load an audio file and set its volume level
-  async sesYukle(name, src, volume = 100) {
+  async loadSound(name, src, volume = 100) {
     if (this.sounds[src]) {
       this.sounds[name] = { buffer: this.sounds[src].buffer, volume };
     } else {
@@ -47,7 +47,7 @@ class AudioManager {
   }
 
   // Tag the same audio file with a different name and set volume level
-  sesEtiket(newName, existingName, volume = 100) {
+  tagSound(newName, existingName, volume = 100) {
     if (this.sounds[existingName]) {
       this.sounds[newName] = {
         buffer: this.sounds[existingName].buffer,
