@@ -1,81 +1,81 @@
 # AudioManager
 
-`AudioManager`, JavaScript ile ses dosyalarını yönetmek için geliştirilmiş, esnek ve güçlü bir sınıftır. Bu sınıf, her bir ses için ayrı ses seviyesi, genel ses seviyesi, sessize alma ve yeniden oynatma özellikleri sağlar. Aynı ses dosyasını farklı etiketlerle farklı ses seviyelerinde kullanabilirsiniz.
+`AudioManager` is a flexible and powerful JavaScript class developed to manage audio files. This class provides individual volume levels for each sound, a master volume level, mute/unmute features, and playback controls. You can use the same audio file with different tags at different volume levels.
 
-## Özellikler
-- **Ses yükleme ve oynatma**: Ses dosyalarını yükleyebilir ve belirli bir ses seviyesinde oynatabilirsiniz.
-- **Etiketleme**: Aynı ses dosyasını farklı etiketlerle farklı ses seviyelerinde kullanabilirsiniz.
-- **Genel ses seviyesi**: Tüm sesler için genel bir ses seviyesi ayarlayabilirsiniz.
-- **Geçici ses seviyesi**: Belirli bir çalma işlemi için geçici ses seviyesi verebilirsiniz.
-- **Sessize alma ve ses açma**: Tüm sesleri sessize alabilir veya açabilirsiniz.
+## Features
+- **Load and Play Sounds**: Load audio files and play them at specified volume levels.
+- **Tagging**: Use the same audio file with different tags at different volume levels.
+- **Master Volume**: Set a global volume level for all sounds.
+- **Temporary Volume**: Specify a temporary volume level for a one-time play.
+- **Mute and Unmute**: Mute or unmute all sounds.
 
-## Kurulum
+## Installation
 
-1. Projeye `AudioManager.js` dosyasını ekleyin veya aşağıdaki kodu kendi dosyanıza ekleyin.
-2. Sınıfı kullanmak için `AudioManager`'ı çağırarak yeni bir ses yöneticisi oluşturun.
+1. Add the `AudioManager.js` file to your project, or include the code in your own script.
+2. Initialize the audio manager by creating a new instance of `AudioManager`.
 
-## Kullanım
+## Usage
 
-### Global Ses Yöneticisi Örneği
+### Global Audio Manager Example
 
-Aşağıda, `AudioManager`'ı global bir ses yöneticisi olarak kullanarak sesleri nasıl yükleyeceğinizi ve etiketleyeceğinizi gösteren bir örnek bulunmaktadır.
+Below is an example demonstrating how to use `AudioManager` as a global audio manager, including loading sounds and tagging.
 
 ```javascript
 let audioManager = null;
 
-// Sayfa yüklendikten sonra ses yöneticisini başlat
+// Initialize the audio manager once the page is loaded
 document.addEventListener("DOMContentLoaded", async function () {
-  // Global bir ses yolu belirleyin
+  // Define a global path for the sounds
   const globalSoundPath = "https://www.example.com/sounds/";
 
-  // AudioManager'ı başlatın
+  // Start the AudioManager
   audioManager = new AudioManager(globalSoundPath);
 
-  // Farklı sesleri yükleyin
-  await audioManager.sesYukle("menuClick", "menu_click.wav", 100); // %100 sesle yükle
-  await audioManager.sesYukle("itemSelect", "item_select.wav", 80); // %80 sesle yükle
+  // Load different sounds
+  await audioManager.sesYukle("menuClick", "menu_click.wav", 100); // Load at 100% volume
+  await audioManager.sesYukle("itemSelect", "item_select.wav", 80); // Load at 80% volume
 
-  // Mevcut bir sesi farklı isimlerle etiketleyin
-  audioManager.sesEtiket("openTab", "menuClick", 70);    // %70 sesle "menuClick" olarak
-  audioManager.sesEtiket("clickItem", "itemSelect", 60); // %60 sesle "itemSelect" olarak
+  // Tag an existing sound with different names
+  audioManager.sesEtiket("openTab", "menuClick", 70);    // Use "menuClick" at 70% volume
+  audioManager.sesEtiket("clickItem", "itemSelect", 60); // Use "itemSelect" at 60% volume
 
-  // Sesleri test edin
-  audioManager.menuClick();     // %100 sesle çalınır
-  audioManager.itemSelect();    // %80 sesle çalınır
-  audioManager.openTab();       // %70 sesle çalınır
-  audioManager.clickItem();     // %60 sesle çalınır
+  // Test sounds
+  audioManager.menuClick();     // Plays at 100% volume
+  audioManager.itemSelect();    // Plays at 80% volume
+  audioManager.openTab();       // Plays at 70% volume
+  audioManager.clickItem();     // Plays at 60% volume
 
-  // Genel ses seviyesini ayarlayın
-  audioManager.setMasterVolume(50); // Genel ses %50 olur
+  // Set a master volume
+  audioManager.setMasterVolume(50); // Sets the master volume to 50%
 });
 ```
 
-### Örnek Kullanım Senaryoları
+### Example Use Cases
 
-- **Ses Yükleme ve Oynatma**:
+- **Loading and Playing Sounds**:
   ```javascript
-  audioManager.sesYukle("clickSound", "button_click.wav", 90); // %90 ses seviyesinde yükle
-  audioManager.clickSound(); // %90 ses seviyesinde oynatır
+  audioManager.sesYukle("clickSound", "button_click.wav", 90); // Load at 90% volume
+  audioManager.clickSound(); // Plays at 90% volume
   ```
 
-- **Etiketleme**:
+- **Tagging**:
   ```javascript
-  audioManager.sesEtiket("secondaryClick", "clickSound", 60); // %60 sesle farklı bir etiket
-  audioManager.secondaryClick(); // %60 ses seviyesinde oynar
+  audioManager.sesEtiket("secondaryClick", "clickSound", 60); // Tag with 60% volume
+  audioManager.secondaryClick(); // Plays at 60% volume
   ```
 
-- **Geçici Ses Seviyesi ile Oynatma**:
+- **Playing with a Temporary Volume**:
   ```javascript
-  audioManager.clickSound(30); // Bir defalığına %30 sesle çalınır
+  audioManager.clickSound(30); // Plays once at 30% volume
   ```
 
-- **Genel Ses Seviyesini Ayarlama**:
+- **Setting Master Volume**:
   ```javascript
-  audioManager.setMasterVolume(40); // Genel sesi %40’a ayarlar, tüm sesler bu orana göre oynatılır
+  audioManager.setMasterVolume(40); // Sets the master volume to 40%, affecting all sounds proportionally
   ```
 
-- **Sessize Alma ve Açma**:
+- **Muting and Unmuting**:
   ```javascript
-  audioManager.mute();   // Tüm sesler sessize alınır
-  audioManager.unmute(); // Tüm sesler açılır
+  audioManager.mute();   // Mutes all sounds
+  audioManager.unmute(); // Unmutes all sounds
   ```
