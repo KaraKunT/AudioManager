@@ -6,6 +6,7 @@ class AudioManager {
     this.defaultPath = defaultPath; // Default path for audio files
     this.isContextStarted = false; // Track if AudioContext has been started
     this.masterVolume = 100; // Global volume level (default is 100%)
+    this.activeSources = {}; // Track active sources to stop sounds
 
     // Use Proxy to suppress errors when calling undefined methods
     return new Proxy(this, {
@@ -76,6 +77,17 @@ class AudioManager {
       source.connect(gainNode);
       gainNode.connect(this.audioContext.destination);
       source.start(0);
+      
+      // Save the source to allow stopping later
+      this.activeSources[name] = source;
+    }
+  }
+
+  // Stop playing a specific sound
+  stop(name) {
+    if (this.activeSources[name]) {
+      this.activeSources[name].stop(); // Stop the sound
+      delete this.activeSources[name]; // Remove it from active sources
     }
   }
 
