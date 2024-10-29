@@ -8,6 +8,7 @@
 - **Master Volume**: Set a global volume level for all sounds.
 - **Temporary Volume**: Specify a temporary volume level for a one-time play.
 - **Mute and Unmute**: Mute or unmute all sounds.
+- **Stopping a Sound**: You can instantly stop a sound that is currently playing.
 
 ## Installation
 
