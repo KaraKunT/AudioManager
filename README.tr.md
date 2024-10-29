@@ -63,6 +63,11 @@ document.addEventListener("DOMContentLoaded", async function () {
   audioManager.clickSound(); // %90 ses seviyesinde oynatır 
   ```
 
+- **Ses Durdurma**:
+  ```javascript
+  audioManager.stop("clickSound"); // Ses hemen durur
+  ```  
+
 - **Etiketleme**:
   ```javascript
   audioManager.sesEtiket("secondaryClick", "clickSound", 60); // %60 sesle farklı bir etiket
