@@ -75,6 +75,11 @@ document.addEventListener("DOMContentLoaded", async function () {
   audioManager.clickSound(30);         // Plays once at 30% volume
   audioManager.play("clickSound", 30); // Plays once at 30% volume
   ```
+  
+- **Stopping a Sound**:
+  ```javascript
+  audioManager.stop("clickSound"); // The sound stops immediately
+  ```
 
 - **Setting Master Volume**:
   ```javascript
