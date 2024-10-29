@@ -61,12 +61,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   ```javascript
   audioManager.sesYukle("clickSound", "button_click.wav", 90); // %90 ses seviyesinde yükle
   audioManager.clickSound(); // %90 ses seviyesinde oynatır 
-  ```
-
-- **Ses Durdurma**:
-  ```javascript
-  audioManager.stop("clickSound"); // Ses hemen durur
-  ```  
+  ``` 
 
 - **Etiketleme**:
   ```javascript
@@ -80,6 +75,11 @@ document.addEventListener("DOMContentLoaded", async function () {
   audioManager.clickSound(30);         // Bir defalığına %30 sesle çalınır
   audioManager.play("clickSound", 30); // Bir defalığına %30 sesle çalınır
   ```
+
+- **Sesi Durdurma**:
+  ```javascript
+  audioManager.stop("clickSound"); // Ses hemen durur
+  ```   
 
 - **Genel Ses Seviyesini Ayarlama**:
   ```javascript
