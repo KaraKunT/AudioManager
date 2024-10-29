@@ -8,6 +8,7 @@
 - **Genel ses seviyesi**: Tüm sesler için genel bir ses seviyesi ayarlayabilirsiniz.
 - **Geçici ses seviyesi**: Belirli bir çalma işlemi için geçici ses seviyesi verebilirsiniz.
 - **Sessize alma ve ses açma**: Tüm sesleri sessize alabilir veya açabilirsiniz.
+- **Ses Durdurma**: Çalmakta olan bir sesi anında durdurabilirsiniz.
 
 ## Kurulum
 
