@@ -80,6 +80,11 @@ class AudioManager {
       
       // Save the source to allow stopping later
       this.activeSources[name] = source;
+
+      // Remove from activeSources when the sound finishes playing
+      source.onended = () => {
+        delete this.activeSources[name];
+      };
     }
   }
 
