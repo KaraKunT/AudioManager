@@ -7,6 +7,7 @@ class AudioManager {
     this.defaultPath = defaultPath; // Varsayılan dosya yolu
     this.isContextStarted = false; // AudioContext'in başlatıldığını izler
     this.masterVolume = 100; // Genel ses seviyesi (varsayılan %100)
+    this.activeSources = {}; // Çalmakta olan sesleri takip etmek için nesne
 
     // Proxy ile eksik metot çağrıldığında sessiz hata verme
     return new Proxy(this, {
@@ -77,6 +78,17 @@ class AudioManager {
       source.connect(gainNode);
       gainNode.connect(this.audioContext.destination);
       source.start(0);
+
+      // Sonradan durdurmak için kaynağı sakla
+      this.activeSources[name] = source; 
+    }
+  }
+
+  // Belirli bir sesi durdur
+  stop(name) {
+    if (this.activeSources[name]) {
+      this.activeSources[name].stop(); // Sesi durdur
+      delete this.activeSources[name]; // Kaynağı activeSources'den çıkar
     }
   }
 
