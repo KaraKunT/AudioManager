@@ -81,6 +81,11 @@ class AudioManager {
 
       // Sonradan durdurmak için kaynağı sakla
       this.activeSources[name] = source; 
+
+      // Ses bittiğinde activeSources'ten kaldır
+      source.onended = () => {
+        delete this.activeSources[name];
+      };      
     }
   }
 
